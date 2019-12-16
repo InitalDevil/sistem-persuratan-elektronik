@@ -1,9 +1,7 @@
 @extends('layout.app')
 
-@section('title')
-Dashboard
-@endsection
-
+@section('title', 'Dashboard')
+@section('content_title', 'Dashboard')
 @section('content')
 <div class="container-fluid">
     <div class="row">
