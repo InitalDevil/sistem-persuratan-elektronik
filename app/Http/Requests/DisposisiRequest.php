@@ -6,28 +6,33 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class DisposisiRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
-        return [
-            'kepada' => 'required|string',
-            'keterangan' => 'required|string',
-            'status' => 'required|numeric',
-            'tanggapan' => 'required|string'
-        ];
+        switch ($this->method()) {
+            case 'POST':
+                return [
+                    'kepada' => 'required|string',
+                    'keterangan' => 'required|string',
+                    'status' => 'required|numeric',
+                    'tanggapan' => 'required|string'
+                ];
+                break;
+            case 'PUT':
+                return [
+                    'kepada' => 'sometimes|required|string',
+                    'keterangan' => 'sometimes|required|string',
+                    'status' => 'sometimes|required|numeric',
+                    'tanggapan' => 'sometimes|required|string'
+                ];
+                break;
+            default:
+                break;
+        }
     }
 }
