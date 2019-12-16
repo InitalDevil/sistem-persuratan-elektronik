@@ -24,4 +24,8 @@ class SuratMasuk extends Model
     {
         return $this->hasMany('App\Disposisi');
     }
+    public function jenis_surat()
+    {
+        return $this->belongsTo('App\JenisSurat', 'jenis_surat');
+    }
 }

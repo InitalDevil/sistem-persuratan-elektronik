@@ -19,4 +19,8 @@ class Disposisi extends Model
     {
         return $this->belongsTo('App\SuratMasuk', 'no_agenda');
     }
+    public function status_surat()
+    {
+        return $this->belongsTo('App\StatusSurat', 'status');
+    }
 }

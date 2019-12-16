@@ -13,7 +13,7 @@ class DisposisiRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class DisposisiRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'kepada' => 'required|string',
+            'keterangan' => 'required|string',
+            'status' => 'required|numeric',
+            'tanggapan' => 'required|string'
         ];
     }
 }

@@ -13,7 +13,7 @@ class SuratKeluarRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class SuratKeluarRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_id' => 'required|numeric',
+            'jenis_surat' => 'required|numeric',
+            'no_surat' => 'required|string',
+            'pengirim' => 'required|string',
+            'perihal' => 'required|string',
         ];
     }
 }

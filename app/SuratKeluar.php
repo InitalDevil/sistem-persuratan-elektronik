@@ -20,4 +20,8 @@ class SuratKeluar extends Model
     {
         return $this->belongsTo('App\User');
     }
+    public function jenis_surat()
+    {
+        return $this->belongsTo('App\JenisSurat', 'jenis_surat');
+    }
 }
