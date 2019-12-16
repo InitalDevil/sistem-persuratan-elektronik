@@ -1,8 +1,8 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', 'DashboardController@index')->name('dashboard');
 
 Route::resource('surat-masuk', 'SuratMasukController');
 

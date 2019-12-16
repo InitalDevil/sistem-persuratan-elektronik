@@ -20,7 +20,7 @@ class CreateSuratMasuksTable extends Migration
             $table->string('no_surat');
             $table->string('pengirim');
             $table->string('perihal');
-            $table->string('tgl_terima')->nullable();
+            $table->string('tgl_kirim');
             $table->timestamps();
         });
     }

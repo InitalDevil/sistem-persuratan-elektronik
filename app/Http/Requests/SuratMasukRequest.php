@@ -22,6 +22,7 @@ class SuratMasukRequest extends FormRequest
                     'no_surat' => 'required|string',
                     'pengirim' => 'required|string',
                     'perihal' => 'required|string',
+                    'tgl_kirim' => 'required',
                 ];
                 break;
             case 'PUT':
