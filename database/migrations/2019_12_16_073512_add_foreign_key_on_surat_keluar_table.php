@@ -15,7 +15,6 @@ class AddForeignKeyOnSuratKeluarTable extends Migration
     {
         Schema::table('surat_keluar', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('jenis_surat')->references('id')->on('jenis_surat')->onDelete('cascade');
         });
     }
 
@@ -28,7 +27,6 @@ class AddForeignKeyOnSuratKeluarTable extends Migration
     {
         Schema::table('surat_keluar', function (Blueprint $table) {
             $table->dropForeign('surat_keluar_user_id_foreign');
-            $table->dropForeign('surat_keluar_jenis_surat_foreign');
         });
     }
 }

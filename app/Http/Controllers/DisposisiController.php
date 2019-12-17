@@ -2,50 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Disposisi;
+use App\SuratMasuk;
 use Illuminate\Http\Request;
 
 class DisposisiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $disposisi = Disposisi::All();
+        return view('disposisi.index')->with('disposisi', $disposisi);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $suratMasuk = SuratMasuk::All();
+        return view('disposisi.create')->with('suratMasuk', $suratMasuk);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'no_surat' => 'required|string',
+            'kepada' => 'required|string',
+            'status' => 'required|string',
+            'tanggapan' => 'required|string',
+        ]);
+        $disposisi = $request->except('_token');
+        $store = Disposisi::create($disposisi);
+        return redirect()->route('disposisi.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Disposisi $disposisi)
     {
-        //
+        return view('disposisi.show')->with('disposisi', $disposisi);
     }
 
     /**
@@ -54,9 +45,9 @@ class DisposisiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Disposisi $disposisi)
     {
-        //
+        return view('disposisi.edit')->with('disposisi', $disposisi);
     }
 
     /**
@@ -66,9 +57,17 @@ class DisposisiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Disposisi $disposisi)
     {
-        //
+        $this->validate($request, [
+            'no_surat' => 'required|string',
+            'kepada' => 'required|string',
+            'status' => 'required|string',
+            'tanggapan' => 'required|string',
+        ]);
+        $update = $request->except(['_token', 'method']);
+        $disposisi->update($update);
+        return redirect()->route('disposisi.index');
     }
 
     /**
@@ -77,8 +76,9 @@ class DisposisiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Disposisi $disposisi)
     {
-        //
+        $disposisi->delete();
+        return redirect()->route('disposisi.index');
     }
 }

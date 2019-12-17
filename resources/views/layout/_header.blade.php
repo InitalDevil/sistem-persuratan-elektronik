@@ -11,11 +11,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <span
-                    class="dropdown-item dropdown-header">{{-- Auth::user()->nama_depan . Auth::user()->nama_belakang --}}</span>
+                    class="dropdown-item dropdown-header">{{ Auth::user()->nama }}</span>
                 <div class="dropdown-divider"></div>
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
-                    @method('delete')
                     <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Logout</button>
                 </form>
             </div>

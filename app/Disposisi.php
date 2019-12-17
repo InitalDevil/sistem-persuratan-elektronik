@@ -8,19 +8,14 @@ class Disposisi extends Model
 {
     protected $table = "disposisi";
     protected $fillable = [
-        'no_disposisi',
-        'no_agenda',
+        'no_surat',
         'kepada',
         'keterangan',
         'status',
         'tanggapan'
     ];
-    public function surat_masuk()
+    public function suratMasuk()
     {
-        return $this->belongsTo('App\SuratMasuk', 'no_agenda');
-    }
-    public function status_surat()
-    {
-        return $this->belongsTo('App\StatusSurat', 'status');
+        return $this->belongsTo('App\SuratMasuk', 'no_surat');
     }
 }

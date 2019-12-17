@@ -64,22 +64,24 @@
                             <th>Jenis Surat</th>
                             <th>Pengirim</th>
                             <th>Perihal</th>
-                            <th>Tanggal Dikirim</th>
-                            <th>Tanggal Diterima</th>
+                            <th>Tanggal Kirim</th>
+                            <th>Tanggal Terima</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($suratMasuk as $s)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $s->no_agenda }}</td>
+                            <td>{{ $s->no_surat }}</td>
+                            <td>{{ $s->nama }}</td>
+                            <td>{{ $s->jenis_surat }}</td>
+                            <td>{{ $s->pengirim }}</td>
+                            <td>{{ $s->perihal }}</td>
+                            <td>{{ $s->tgl_kirim }}</td>
+                            <td>{{ $s->tgl_terima }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <table class="table table-hover d-none" id="suratKeluar">
@@ -93,21 +95,21 @@
                             <th>Pengirim</th>
                             <th>Perihal</th>
                             <th>Tanggal Dikirim</th>
-                            <th>Tanggal Diterima</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($suratKeluar as $s)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $s->no_agenda }}</td>
+                            <td>{{ $s->no_surat }}</td>
+                            <td>{{ $s->user->nama }}</td>
+                            <td>{{ $s->jenis_surat }}</td>
+                            <td>{{ $s->pengirim }}</td>
+                            <td>{{ $s->perihal }}</td>
+                            <td>{{ $s->tgl_kirim }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <table class="table table-hover d-none" id="suratDisposisi">
@@ -123,17 +125,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($disposisi as $d)
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $s->no_disposisi }}</td>
+                            <td>{{ $s->no_agenda }}</td>
+                            <td>{{ $s->kepada }}</td>
+                            <td>{{ $s->keterangan }}</td>
+                            <td>{{ $s->status }}</td>
+                            <td>{{ $s->tanggapan }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

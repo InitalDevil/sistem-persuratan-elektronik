@@ -14,8 +14,7 @@ class AddForeignKeyOnDisposisiTable extends Migration
     public function up()
     {
         Schema::table('disposisi', function (Blueprint $table) {
-            $table->foreign('no_agenda')->references('no_agenda')->on('surat_masuk')->onDelete('cascade');
-            $table->foreign('status')->references('id')->on('status_surat')->onDelete('cascade');
+            $table->foreign('no_surat')->references('no_surat')->on('surat_masuk');
         });
     }
 
@@ -27,8 +26,7 @@ class AddForeignKeyOnDisposisiTable extends Migration
     public function down()
     {
         Schema::table('disposisi', function (Blueprint $table) {
-            $table->dropForeign('disposisi_no_agenda_foreign');
-            $table->dropForeign('disposisi_status_foreign');
+            $table->dropForeign('disposisi_no_surat_foreign');
         });
     }
 }

@@ -14,13 +14,14 @@ class CreateSuratMasuksTable extends Migration
     public function up()
     {
         Schema::create('surat_masuk', function (Blueprint $table) {
-            $table->string('no_agenda')->primary();
+            $table->string('no_surat')->primary();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('jenis_surat');
-            $table->string('no_surat');
+            $table->string('jenis_surat');
+            $table->string('no_agenda');
             $table->string('pengirim');
             $table->string('perihal');
-            $table->string('tgl_kirim');
+            $table->date('tgl_kirim');
+            $table->date('tgl_terima');
             $table->timestamps();
         });
     }

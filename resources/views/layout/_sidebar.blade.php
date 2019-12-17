@@ -1,7 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{ route('dashboard') }}" class="brand-link">
-        {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8"> --}}
         <span class="brand-text font-weight-light">SPDE</span>
     </a>
     <div class="sidebar">
@@ -16,7 +14,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ route('surat-masuk.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-inbox"></i>
                         <p>
                             Surat Masuk
@@ -24,7 +22,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ route('surat-keluar.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-paper-plane"></i>
                         <p>
                             Surat Keluar
@@ -32,10 +30,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ route('disposisi.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-share"></i>
                         <p>
                             Surat Disposisi
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('petugas.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Manage Petugas
                         </p>
                     </a>
                 </li>

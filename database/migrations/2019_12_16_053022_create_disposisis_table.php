@@ -14,12 +14,12 @@ class CreateDisposisisTable extends Migration
     public function up()
     {
         Schema::create('disposisi', function (Blueprint $table) {
-            $table->string('no_disposisi')->primary();
-            $table->string('no_agenda');
-            $table->string('kepada');
-            $table->text('keterangan');
-            $table->unsignedBigInteger('status');
-            $table->text('tanggapan');
+            $table->bigIncrements('id');
+            $table->string('no_surat');
+            $table->string('kepada')->nullable();
+            $table->text('keterangan')->nullable();
+            $table->integer('status');
+            $table->text('tanggapan')->nullable();
             $table->timestamps();
         });
     }
