@@ -3,7 +3,16 @@
 @section('content_title', 'Surat Disposisi')
 @section('content')
 <div class="container-fluid">
-    <div class="row">=
+    <div class="row">
+        @if (count($suratMasuk) > 0)
+        <div class="col-12">
+            <div class="float-right">
+                <a href="{{ route('disposisi.create') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Tambah Data
+                </a>
+            </div>
+        </div>
+        @endif
         <div class="col-12 mt-2">
             <div class="table-responsive">
                 <table class="table table-hover" id="tabelDisposisi">
@@ -20,7 +29,11 @@
                         @foreach ($disposisi as $d)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $d->no_surat }}</td>
+                            <td>
+                                <a href="{{ route('surat-masuk.show', ['surat_masuk' => $d->no_surat]) }}" class="btn btn-link">
+                                    {{ $d->no_surat }}
+                                </a>
+                            </td>
                             <td>{{ $d->kepada }}</td>
                             <td>
                                 @if ($d->status == 0)

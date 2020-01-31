@@ -12,7 +12,8 @@ class DisposisiController extends Controller
     public function index()
     {
         $disposisi = Disposisi::All();
-        return view('disposisi.index')->with('disposisi', $disposisi);
+        $suratMasuk = SuratMasuk::All();
+        return view('disposisi.index')->with(['disposisi' => $disposisi, 'suratMasuk' => $suratMasuk]);
     }
 
     public function create()

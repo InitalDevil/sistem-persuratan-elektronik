@@ -20,7 +20,7 @@ class CreateSuratKeluarsTable extends Migration
             $table->string('no_agenda');
             $table->string('pengirim');
             $table->string('perihal');
-            $table->string('tgl_kirim');
+            $table->date('tgl_kirim');
             $table->timestamps();
         });
     }

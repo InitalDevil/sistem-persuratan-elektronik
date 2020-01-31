@@ -27,7 +27,7 @@ class SuratKeluarController extends Controller
             'no_surat' => 'required|string',
             'pengirim' => 'required|string',
             'perihal' => 'required|string',
-            'tgl_kirim' => 'required',
+            'tgl_kirim' => 'required|date',
         ]);
         $suratKeluar = $request->except('_token');
         $store = SuratKeluar::create($suratKeluar);
@@ -54,7 +54,7 @@ class SuratKeluarController extends Controller
             'no_surat' => 'required|string',
             'pengirim' => 'required|string',
             'perihal' => 'required|string',
-            'tgl_kirim' => 'required',
+            'tgl_kirim' => 'required|date',
         ]);
         $update = $request->except(['_token', 'method']);
         $suratKeluar->update($update);

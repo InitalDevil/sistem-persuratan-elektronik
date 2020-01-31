@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="tglKirim">Tanggal Kirim</label>
-                    <input type="text" class="form-control" name="tgl_kirim" placeholder="yyyy-mm-dd">
+                    <input type="date" class="form-control" name="tgl_kirim">
                 </div>
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                 <button type="submit" class="btn btn-primary">Simpan</button>

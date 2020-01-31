@@ -21,10 +21,21 @@
                     <input type="text" class="form-control" name="keterangan" value="{{ $disposisi->keterangan }}">
                 </div>
                 <div class="form-group">
-                    <label for="tanggapan">Tanggapan</label>
-                    <input type="text" class="form-control" name="tanggapan" value="{{ $disposisi->tanggapan }}">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="status" value="0" <?php echo ($disposisi->status == 0) ? "selected" : "" ; ?>> Belum Dibaca
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="status" value="1" <?php echo ($disposisi->status == 1) ? "selected" : "" ; ?>> Sudah Dibaca
+                        </label>
+                    </div>
                 </div>
-                <input type="hidden" name="status" value="1">
+                <div class="form-group">
+                    <label for="tanggapan">Tanggapan</label>
+                    <input type="textarea" class="form-control" name="tanggapan" value="{{ $disposisi->tanggapan }}">
+                </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
